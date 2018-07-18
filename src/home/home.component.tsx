@@ -15,7 +15,6 @@ export class HomeComponent extends React.Component<HomeComponentProps, HomeCompo
   }
 
   public render() {
-    console.log("Rendering");
     return (
       <HomeLayout
         title={this.props.title || this.state.defaultTitle}
