@@ -18,7 +18,10 @@ export class NavComponent extends React.Component<NavComponentProps, NavComponen
   public render() {
     if (!this.props.visible) { return null };
     return (
-      <NavLayout title={this.props.title || this.state.defaultTitle}/>
+      <NavLayout
+        title={this.props.title || this.state.defaultTitle}
+        visible={true}
+      />
     );
   }
 }

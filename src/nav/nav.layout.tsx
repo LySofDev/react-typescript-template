@@ -1,16 +1,13 @@
 import * as React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { NavBar, Title } from './nav.styles';
 
 interface NavLayoutProps {
   title: string;
+  visible: boolean;
 }
 
 export default (props: NavLayoutProps) => (
-  <AppBar position="static" color="secondary">
-    <Toolbar>
-      <Typography variant="title" color="inherit">
-        {props.title}
-      </Typography>
-    </Toolbar>
-  </AppBar>
+  <NavBar visible={props.visible}>
+    <Title>{props.title}</Title>
+  </NavBar>
 );
