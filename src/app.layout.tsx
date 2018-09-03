@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './app.styles';
 import { default as Nav } from './nav';
 import { default as Flash } from './flash';
 
