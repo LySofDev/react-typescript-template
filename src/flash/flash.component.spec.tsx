@@ -1,19 +1,49 @@
 import * as React from 'react';
-import { mount } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import { FlashComponent } from './flash.component';
 
 describe("Flash", () => {
+  let wrapper: ReactWrapper;
+  const testMessage = "This is a test message.";
+  const closeFlashMock = () => null;
+
   describe("with the default state", () => {
     it("renders without crashing", () => {
-      const wrapper = mount(
+      wrapper = mount(
         <FlashComponent
           open={false}
-          closeFlash={() => {}}
-          message={"Test Message"}
+          closeFlash={closeFlashMock}
+          message={""}
         />
       );
       expect(wrapper).toBeDefined();
-      expect(wrapper.contains("Test Message")).toBe(false);
     });
   });
+
+  describe("when hidden", () => {
+    it("doesn't display the current message", () => {
+      wrapper = mount(
+        <FlashComponent
+          open={false}
+          closeFlash={closeFlashMock}
+          message={testMessage}
+        />
+      );
+      expect(wrapper.contains(testMessage)).toBe(false);
+    });
+  });
+
+  describe("when visible", () => {
+    it("displays the current message", () => {
+      wrapper = mount(
+        <FlashComponent
+          open={true}
+          closeFlash={closeFlashMock}
+          message={testMessage}
+        />
+      );
+      expect(wrapper.contains(testMessage)).toBe(true);
+    });
+  });
+
 });
