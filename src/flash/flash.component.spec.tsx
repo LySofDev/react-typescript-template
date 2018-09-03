@@ -9,10 +9,11 @@ describe("Flash", () => {
         <FlashComponent
           open={false}
           closeFlash={() => {}}
-          message={""}
+          message={"Test Message"}
         />
       );
       expect(wrapper).toBeDefined();
+      expect(wrapper.contains("Test Message")).toBe(false);
     });
   });
 });
