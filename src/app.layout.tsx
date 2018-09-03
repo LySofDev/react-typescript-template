@@ -5,11 +5,11 @@ import { default as Flash } from './flash';
 export class AppLayout extends React.PureComponent {
   public render() {
     return (
-      <div>
+      <React.Fragment>
         <Nav />
         {this.props.children}
         <Flash />
-      </div>
+      </React.Fragment>
     );
   }
 }
