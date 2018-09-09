@@ -25,6 +25,18 @@ interface ButtonProps {
   type: string;
 }
 
+const ButtonStyles = `
+  border: none;
+  background: none;
+`
+
 export const TextButton = styled.button`
+  ${ButtonStyles}
   color: ${(props: ButtonProps) => getColor(props.type)};
+`
+
+export const RaisedButton = styled.button`
+  ${ButtonStyles}
+  background: ${(props: ButtonProps) => getColor(props.type)};
+  color: ${theme.inverted ? 'white' : 'black' };
 `
