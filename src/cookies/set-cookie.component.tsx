@@ -6,7 +6,7 @@ export interface SetCookieProps {
   value: string;
 }
 
-export class SetCookie extends React.Component<SetCookieProps, {}> {
+export class SetCookieComponent extends React.Component<SetCookieProps, {}> {
   public componentDidMount() {
     CookieService.set(this.props.label, this.props.value);
   }
