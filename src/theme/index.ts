@@ -1,8 +1,6 @@
 import { Theme } from './theme';
 
 export { Theme } from './theme';
-export { Colors } from './colors';
-export { Font } from './font';
 
 // Configure the theme default values
 // WARNING: Do not provide empty strings!
@@ -26,5 +24,3 @@ export const theme: Theme = {
   },
   inverted: false, // True for dark text
 };
-
-export default theme;
