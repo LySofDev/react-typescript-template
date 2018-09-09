@@ -26,6 +26,16 @@ describe('RaisedButton', () => {
     });
   });
 
+  describe('when clicked', () => {
+    it('will call the onClick prop', () => {
+      const mock = { onClick: () => null };
+      const onClickSpy = jest.spyOn(mock, 'onClick');
+      wrapper = mount(<RaisedButton onClick={mock.onClick} label={testLabel} />);
+      wrapper.find('button').simulate('click');
+      expect(onClickSpy).toHaveBeenCalled();
+    });
+  });
+
 });
 
 describe( 'getColor', () => {
