@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
+import 'jest-styled-components';
 import { theme } from '../theme';
 import { getColor } from './button.styles';
 import { RaisedButtonComponent as RaisedButton } from './raised-button.component';
@@ -33,6 +34,14 @@ describe('RaisedButton', () => {
       wrapper = mount(<RaisedButton onClick={mock.onClick} label={testLabel} />);
       wrapper.find('button').simulate('click');
       expect(onClickSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe('when given "accent" as the type prop', () => {
+    it('will have the accent color as the background color', () => {
+      wrapper = mount(<RaisedButton type='accent' label={testLabel} />);
+      const button = wrapper.find('button').getDOMNode();
+      expect(button).toHaveStyleRule('background', theme.colors.accent);
     });
   });
 
