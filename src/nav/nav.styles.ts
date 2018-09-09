@@ -20,3 +20,7 @@ export const Title = styled.span`
   font-size: 1.5rem;
   font-weight: bold;
 `
+
+export const Brand = styled.span`
+  margin: 0 0.5rem;
+`
