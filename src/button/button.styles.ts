@@ -28,6 +28,8 @@ interface ButtonProps {
 const ButtonStyles = `
   border: none;
   background: none;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
 `
 
 export const TextButton = styled.button`
@@ -38,5 +40,7 @@ export const TextButton = styled.button`
 export const RaisedButton = styled.button`
   ${ButtonStyles}
   background: ${(props: ButtonProps) => getColor(props.type)};
-  color: ${theme.inverted ? 'white' : 'black' };
+  color: ${theme.inverted ? 'black' : 'white' };
+  box-shadow: ${theme.boxShadows.lowest};
+  border-radius: 0.25em;
 `
