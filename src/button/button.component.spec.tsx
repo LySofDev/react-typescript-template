@@ -1,5 +1,32 @@
+import * as React from 'react';
+import { mount, ReactWrapper } from 'enzyme';
 import { theme } from '../theme';
 import { getColor } from './button.styles';
+import { RaisedButtonComponent as RaisedButton } from './raised-button.component';
+
+describe('RaisedButton', () => {
+  let wrapper: ReactWrapper;
+  const testLabel: string = 'Click Me!';
+
+  describe('with a label prop', () => {
+    it('will show the label text', () => {
+      wrapper = mount(<RaisedButton label={testLabel} />);
+      expect(wrapper.contains(testLabel)).toBe(true);
+    });
+  });
+
+  describe('with children nodes', () => {
+    it('will show the children nodes', () => {
+      wrapper = mount(
+        <RaisedButton>
+          {testLabel}
+        </RaisedButton>
+      );
+      expect(wrapper.contains(testLabel)).toBe(true);
+    });
+  });
+
+});
 
 describe( 'getColor', () => {
 
