@@ -13,7 +13,7 @@ export class TextButtonComponent extends React.Component<TextButtonProps, {}> {
       <TextButton
         onClick={this.props.onClick}
         type={this.props.type || "default"}>
-        {this.props.label || this.props.label}
+        {this.props.label || this.props.children}
       </TextButton>
     )
   }

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
 import 'jest-styled-components';
 import { theme } from '../theme';
-import { getColor } from './button.styles';
 import { RaisedButtonComponent as RaisedButton } from './raised-button.component';
 
 describe('RaisedButton', () => {
@@ -18,11 +17,7 @@ describe('RaisedButton', () => {
 
   describe('with children nodes', () => {
     it('will show the children nodes', () => {
-      wrapper = mount(
-        <RaisedButton>
-          {testLabel}
-        </RaisedButton>
-      );
+      wrapper = mount(<RaisedButton>{testLabel}</RaisedButton>);
       expect(wrapper.contains(testLabel)).toBe(true);
     });
   });
@@ -45,37 +40,27 @@ describe('RaisedButton', () => {
     });
   });
 
-});
-
-describe( 'getColor', () => {
-
-  describe( 'given the type "primary"', () => {
-    it( 'will return the primary color', () => {
-      expect( getColor( 'primary' ) ).toEqual( theme.colors.primary );
+  describe('when given "primary" as the type prop', () => {
+    it('will have the primary color as the background color', () => {
+      wrapper = mount(<RaisedButton type='primary' label={testLabel} />);
+      const button = wrapper.find('button').getDOMNode();
+      expect(button).toHaveStyleRule('background', theme.colors.primary);
     });
   });
 
-  describe( 'given the type "secondary"', () => {
-    it( 'will return the background color', () => {
-      expect( getColor( 'secondary' ) ).toEqual( theme.colors.background );
+  describe('when given "secondary" as the type prop', () => {
+    it('will have the background color as the background color', () => {
+      wrapper = mount(<RaisedButton type='secondary' label={testLabel} />);
+      const button = wrapper.find('button').getDOMNode();
+      expect(button).toHaveStyleRule('background', theme.colors.background);
     });
   });
 
-  describe( 'given the type "accent"', () => {
-    it( 'will return the accent color', () => {
-      expect( getColor( 'accent' ) ).toEqual( theme.colors.accent );
-    });
-  });
-
-  describe( 'given the type "warn"', () => {
-    it( 'will return the warn color', () => {
-      expect( getColor( 'warn' ) ).toEqual( theme.colors.warn );
-    });
-  });
-
-  describe('given any other type', () => {
-    it('will return the primary color', () => {
-      expect( getColor( 'any' ) ).toEqual( theme.colors.primary );
+  describe('when given "warn" as the type prop', () => {
+    it('will have the warn color as the background color', () => {
+      wrapper = mount(<RaisedButton type='warn' label={testLabel} />);
+      const button = wrapper.find('button').getDOMNode();
+      expect(button).toHaveStyleRule('background', theme.colors.warn);
     });
   });
 
