@@ -1,8 +1,10 @@
+import { BoxShadows } from './box-shadows';
 import { Colors } from './colors';
 import { Font } from './font';
 
 export interface Theme {
-  inverted: boolean;
+  boxShadows: BoxShadows;
   colors: Colors;
   font: Font;
+  inverted: boolean;
 }
