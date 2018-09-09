@@ -2,8 +2,8 @@ import { Action } from '../action';
 import { CLOSE_FLASH, SHOW_FLASH } from './flash.actions';
 
 export interface FlashState {
-  readonly message?: string;
-  readonly open: boolean;
+  message: string;
+  open: boolean;
 }
 
 const initialState: FlashState = {
@@ -16,6 +16,7 @@ export function flashReducer(state: FlashState = initialState, action: Action): 
 
     case CLOSE_FLASH:
       return {
+        message: state.message,
         open: false
       }
 

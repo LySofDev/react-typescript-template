@@ -14,8 +14,8 @@ export { flashReducer, FlashState } from './flash.reducer';
 
 export default connect(
   (state: State) => ({
-    message: state.flash.message,
-    open: state.flash.open,
+    message: state.flash.message || "",
+    open: state.flash.open || false,
   }),
   (dispatch: Dispatch) => ({
     closeFlash: () => { dispatch(CloseFlashAction()) }
