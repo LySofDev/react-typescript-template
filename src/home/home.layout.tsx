@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Container, Title } from './home.styles';
 import { TextButton, RaisedButton } from '../button';
+import { SetCookie } from '../cookies';
 
 interface HomeLayoutProps {
   title: string;
@@ -33,5 +34,6 @@ export default (props: HomeLayoutProps) => (
     <p>
       <RaisedButton type="Warn">Warn Raised Button</RaisedButton>
     </p>
+    <SetCookie label="HELLO" value="WORLD" />
   </Container>
 );
